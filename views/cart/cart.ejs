@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+
+    
+    <ul>
+        <%for(let item of user.cart){ %>
+            <li><%=item.name%> ==> <%=item.price%></li>
+
+        <%} %>
+    </ul>
+
+    <form action="payment_gateway/payumoney" method="POST">
+        <input class="amount" type="hidden" name="amount" value="<%=totalAmount%>"/>
+        <input class="con" type="hidden" name="phone" value="99999999" />
+        <input type="hidden" name="service_provider" 
+         value="payu_paisa"/>
+        <input type="hidden" class="product" name="productinfo" 
+         value="educational purpose"/>
+         
+         <input type="submit" class="btn btn-sm btn-success my-3" value="Pay">Checkout />
+        </form>
+
+    </body>
+    </html>
+
+     
